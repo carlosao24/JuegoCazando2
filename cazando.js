@@ -12,10 +12,10 @@ const ANCHOGATO = 50;
 const ALTURAGATO = 50;
  
 // Raton
-let ratonX = 50;
-let ratonY = 50;
-const ANCHORATON = 30;
-const ALTURARATON = 30;
+let comidaX = 50;
+let comidaY = 50;
+const ANCHOCOMIDA = 30;
+const ALTURACOMIDA = 30;
  
 function graficar(x, y, ancho, alto, color) {
     ctx.fillStyle = color;
@@ -26,15 +26,15 @@ function graficarGato() {
     graficar(gatoX, gatoY, ANCHOGATO, ALTURAGATO, "#000000");
 };
  
-function graficarRaton() {
-    graficar(ratonX, ratonY, ANCHORATON, ALTURARATON, "#ff0000");
+function graficarComida() {
+    graficar(comidaX, comidaY, ANCHOCOMIDA, ALTURACOMIDA, "#ff0000");
 };
  
 function iniciarJuego() {
     gatoX = (canvas.width / 2) - (ANCHOGATO / 2);
     gatoY = (canvas.height / 2) - (ALTURAGATO / 2);
     graficarGato();
-    graficarRaton();
+    graficarComida();
 }
  
 function mover(direccion) {
