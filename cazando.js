@@ -69,6 +69,13 @@ function moverArriba(){
     graficarGato();
     graficarComida();
 }
+
+function actualizarPantalla(){
+    limpiarCanva();
+    graficarGato();
+    graficarComida();
+}
+
 function moverAbajo(){
     gatoY = gatoY + 10;
     limpiarCanva();
