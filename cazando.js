@@ -53,36 +53,31 @@ function limpiarCanva(){
 
 function moverIzquierda(){
     gatoX = gatoX - 10;
-    limpiarCanva();
-    graficarGato();
-    graficarComida();
+    actualizarPantalla();
+    detectarColision();
 }
 function moverDerecha(){
     gatoX = gatoX + 10;
-    limpiarCanva();
-    graficarGato();
-    graficarComida();
+    actualizarPantalla();
+    detectarColision();
 }
 function moverArriba(){
     gatoY = gatoY - 10;
-    limpiarCanva();
-    graficarGato();
-    graficarComida();
+    actualizarPantalla();
+    detectarColision();
+}
+function moverAbajo(){
+    gatoY = gatoY + 10;
+    actualizarPantalla();
+    detectarColision();
 }
 
 function actualizarPantalla(){
     limpiarCanva();
     graficarGato();
     graficarComida();
-}
+} 
 
-function moverAbajo(){
-    gatoY = gatoY + 10;
-    limpiarCanva();
-    graficarGato();
-    graficarComida();
-}
- 
 document.getElementById("btnArriba").onclick = () => moverArriba();
 document.getElementById("btnAbajo").onclick = () => moverAbajo();
 document.getElementById("btnIzquierda").onclick = () => moverIzquierda();
