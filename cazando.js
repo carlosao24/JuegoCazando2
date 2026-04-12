@@ -15,7 +15,7 @@ const ANCHOCOMIDA = 30;
 const ALTURACOMIDA = 30;
 
 let puntos = 0;
-let tiempo = 10;
+let tiempo = 50;
 let intervalo = null;
 
 
@@ -47,7 +47,7 @@ function iniciarJuego() {
     comidaY = canvas.height - ALTURACOMIDA;
 
     puntos = 0;
-    tiempo = 10;
+    tiempo = 50;
 
     document.getElementById("puntos").textContent = puntos;
     document.getElementById("tiempo").textContent = tiempo;
@@ -131,6 +131,10 @@ function restarTiempo(){
     
     }
 }
-
+function reiniciarJuego(){
+    clearInterval(intervalo);
+    iniciarJuego();
+    actualizarPantalla();
+}
 
 
