@@ -14,6 +14,9 @@ let comidaY = 50;
 const ANCHOCOMIDA = 30;
 const ALTURACOMIDA = 30;
 
+let puntos = 0;
+let tiempo = 10;
+let intervalo = null;
 
 
 //FUNCION PRINCIPAL
@@ -88,6 +91,21 @@ function detectarColision(){
         comidaX < gatoX + ANCHOGATO &&
         comidaY + ALTURACOMIDA > gatoY &&
         comidaY < gatoY + ALTURAGATO){
-        alert("ATRAPADO!!");
+
+        // SUMAR PUNTO
+        puntos++;
+        document.getElementById("puntos").textContent = puntos;
+
+        // MOVER COMIDA ALEATORIA
+        comidaX = Math.random() * (canvas.width - ANCHOCOMIDA);
+        comidaY = Math.random() * (canvas.height - ALTURACOMIDA);
+
+        actualizarPantalla();
+
+        // CONDICIÓN GANAR
+        if(puntos == 6){
+            alert("GANASTE 🎉");
+            clearInterval(intervalo);
+        }
     }
-} 
+}
