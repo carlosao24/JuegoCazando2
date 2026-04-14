@@ -47,7 +47,7 @@ function iniciarJuego() {
     comidaY = canvas.height - ALTURACOMIDA;
 
     puntos = 0;
-    tiempo = 50;
+    tiempo = 10;
 
     document.getElementById("puntos").textContent = puntos;
     document.getElementById("tiempo").textContent = tiempo;
@@ -111,7 +111,7 @@ function detectarColision(){
         // MOVER COMIDA ALEATORIA
         comidaX = Math.random() * (canvas.width - ANCHOCOMIDA);
         comidaY = Math.random() * (canvas.height - ALTURACOMIDA);
-
+        tiempo = 10;
         actualizarPantalla();
 
         // CONDICIÓN GANAR
