@@ -1,42 +1,173 @@
+:root {
+  --primary-color: #2c3e50; /* Azul Metálico */
+  --accent-color: #3498db;
+  --text-color: #ecf0f1;
+  --panel-bg: rgba(0, 0, 0, 0.6);
+  --transition-speed: 0.4s;
+}
+
+/* Clase para el tema Verde Gaming */
+body.gaming-green {
+  --primary-color: #0b1a0e;
+  --accent-color: #00ff41;
+  --text-color: #00ff41;
+}
+
 body {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background: #f0f0f0;
+  /* Imagen de fondo */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/imagen\ fondo.png");
+  
+  /* Ajustes para que la imagen se vea bien */
+  background-size: cover;           /* Cubre toda la pantalla */
+  background-position: center;      /* Centra la imagen */
+  background-attachment: fixed;     /* La imagen no se mueve al hacer scroll */
+  background-repeat: no-repeat;     /* No repite la imagen */
+
+  /* Tus estilos originales que se mantienen intactos */
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-family: 'Orbitron', sans-serif;
   margin: 0;
-  padding: 20px;
-}
-
-h1 {
-  margin-bottom: 5px;
-}
-
-.panel {
-  margin: 15px 0;
-  font-size: 18px;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color var(--transition-speed) ease;
+}
+
+/* --- Toggle Switch --- */
+.theme-switch-wrapper {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 100;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 26px;
+  position: relative;
+  width: 50px;
+}
+
+.theme-switch input { display: none; }
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 18px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 18px;
+  border-radius: 50%;
+}
+
+input:checked + .slider { background-color: #00ff41; }
+input:checked + .slider:before { transform: translateX(24px); }
+
+/* --- Contenedor Principal --- */
+.game-container {
+  background: var(--panel-bg);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  border: 1px solid var(--accent-color);
+  text-align: center;
+}
+
+h1 { letter-spacing: 5px; margin: 0; color: var(--accent-color); }
+.author { font-family: 'Roboto Mono', monospace; font-size: 0.8rem; opacity: 0.7; }
+
+/* --- Panel de Stats --- */
+.stats-panel {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.stat-box {
+  background: #000;
+  padding: 10px 20px;
+  border-left: 4px solid var(--accent-color);
+  font-family: 'Roboto Mono', monospace;
 }
 
 canvas {
-  background: white;
-  border: 2px solid black;
+  background: #111;
+  border: 4px solid #333;
+  box-shadow: inset 0 0 10px #000;
+  max-width: 100%;
 }
 
-.controles {
-  margin-top: 20px;
+/* --- Botones con Forma de Flecha --- */
+.console-controls {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
-button {
-  margin: 5px;
-  padding: 10px 16px;
-  font-size: 18px;
+.arrow {
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent-color);
+  border: none;
   cursor: pointer;
+  transition: all 0.2s ease;
+  filter: drop-shadow(0 4px 0 rgba(0,0,0,0.3));
 }
 
-#mensaje {
-  font-size: 20px;
-  font-weight: bold;
-  color: darkred;
-  margin-top: 15px;
+/* Geometría con clip-path */
+.up { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+.down { clip-path: polygon(0% 0%, 100% 0%, 50% 100%); }
+.left { clip-path: polygon(100% 0%, 0% 50%, 100% 100%); }
+.right { clip-path: polygon(0% 0%, 100% 50%, 0% 100%); }
+
+.arrow:hover {
+  background-color: var(--text-color);
+  transform: translateY(-2px);
+}
+
+.arrow:active {
+  transform: translateY(2px);
+  filter: none;
+}
+
+.horizontal-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.btn-reset {
+  font-family: 'Orbitron', sans-serif;
+  padding: 10px 25px;
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-reset:hover {
+  background: var(--accent-color);
+  color: #000;
 }

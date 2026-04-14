@@ -1,0 +1,49 @@
+Prompt 1:
+quiero que me ayudes a generar prompts como experto en UX en un css. pero ya te pasare el contexto de lo que tengo
+
+Prompt 2:
+tengo un juego usando html, css, javascript.
+
+El juego se desarrolla en canva javascript, el juego trata sobre un cuadrado grande 
+el cual llamaremos gato debe atrapar un cuadrado mas pequeño el cual llamaremos comida.
+
+por cada vez que el gato atrape un cuadrado(comida) se debe sumar un punto, 
+que mejora quiero que se aplique, una mejora en el diseño de botones, 
+quiero que mi pantalla de juego contenga un botón donde pueda cambiar de color el fondo de pantalla de toda la pagina 
+por ejemplo de un color azul metalico a verde gaming:
+
+los botones deben tener la forma de las flechas.
+
+ahora bien te paso mi html, y mi css para que me entregues el prompt que puedo usar con ese codigo. Solo has lo indicado, nada mas.
+
+html: 
+css: 
+el boton de cambio de color quiero que se vea como un interruptor y esta debe estar ubicado en el lado superior derecho, 
+flotando en el body, no dentro de el canvas
+
+Prompt 3:
+"Actúa como un experto en UX/UI y CSS Senior. Mi objetivo es transformar la interfaz de un juego en Canvas 
+utilizando un enfoque moderno y funcional.
+
+Aquí tienes mi código base:
+
+HTML:
+[Copia y pega aquí tu HTML]
+
+CSS:
+[Copia y pega aquí tu CSS]
+
+Instrucciones de mejora:
+
+Botones con forma de flecha: Rediseña los botones de control (#btnArriba, #btnIzquierda, etc.) para que tengan físicamente forma de flecha. 
+Utiliza clip-path o pseudo-elementos (::before/::after) en lugar de simples cuadros. 
+Deben incluir efectos visuales de hover (al pasar el ratón) y active (al presionar) para dar un feedback claro al usuario.
+
+Interruptor de fondo (Toggle Switch): Añade un componente tipo interruptor (switch) moderno y elegante. 
+Debe estar ubicado en la esquina superior derecha del navegador con position: fixed para que flote sobre el contenido.
+
+Temas Cromáticos: Configura el diseño para que el interruptor cambie el fondo del body 
+entre un Azul Metálico (#2c3e50) y un Verde Gaming (#00ff41). Asegúrate de usar transition para que el cambio de color sea suave y no brusco.
+
+Estética General: Mejora la tipografía y el contenedor de los controles para que se sientan como una consola de videojuegos, 
+manteniendo la legibilidad del puntaje y el tiempo en ambos fondos.

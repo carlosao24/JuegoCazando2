@@ -27,7 +27,7 @@ function graficarRectangulo(x, y, ancho, alto, color) {
 
 //FUNCION PARA GRAFICAR AL GATO
 function graficarGato() {
-    graficarRectangulo(gatoX, gatoY, ANCHOGATO, ALTURAGATO, "#000000");
+    graficarRectangulo(gatoX, gatoY, ANCHOGATO, ALTURAGATO, "white");
 };
 
 //FUNCION PARA GRAFICAR COMIDA
@@ -67,22 +67,22 @@ function limpiarCanva(){
 }
 
 function moverIzquierda(){
-    gatoX = gatoX - 10;
+    gatoX = gatoX - 20;
     actualizarPantalla();
     detectarColision();
 }
 function moverDerecha(){
-    gatoX = gatoX + 10;
+    gatoX = gatoX + 20;
     actualizarPantalla();
     detectarColision();
 }
 function moverArriba(){
-    gatoY = gatoY - 10;
+    gatoY = gatoY - 20;
     actualizarPantalla();
     detectarColision();
 }
 function moverAbajo(){
-    gatoY = gatoY + 10;
+    gatoY = gatoY + 20;
     actualizarPantalla();
     detectarColision();
 }

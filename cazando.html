@@ -1,35 +1,55 @@
 <!DOCTYPE html>
-<html>
- 
+<html lang="es">
 <head>
-  <title>Juego Cazando</title>
+  <meta charset="UTF-8">
+  <title>Cazando - Pro Edition</title>
   <link rel="stylesheet" href="cazando.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
- 
 <body onload="iniciarJuego();">
- 
-  <h1>Juego Cazando</h1>
-  <p>Autor: Carlos López</p>
- 
-  <canvas id="juego" width="600" height="400"></canvas>
-  <div class="controles">
-    <button id="btnArriba" onclick="moverArriba();">⬆</button>
-    <br>
-    <button id="btnIzquierda" onclick="moverIzquierda();">⬅</button>
-    <button id="btnAbajo" onclick="moverAbajo();">⬇</button>
-    <button id="btnDerecha" onclick="moverDerecha();">➡</button>
-    <br>
-    <button onclick="reiniciarJuego()">REINICIAR </button>
+
+  <div class="theme-switch-wrapper">
+    <span class="label-switch">Modo</span>
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" onchange="toggleTheme()" />
+      <div class="slider round"></div>
+    </label>
   </div>
- 
- 
-  <div class="panel">
-    <span>Puntos: <span id="puntos">0</span></span>
-    <span>Tiempo: <span id="tiempo">50</span></span>
-  </div>
- 
-  <p id="mensaje"></p>
+
+  <main class="game-container">
+    <header>
+      <h1>CAZANDO</h1>
+      <p class="author">Operativo: <span>Carlos López</span></p>
+    </header>
+
+    <div class="stats-panel">
+      <div class="stat-box">PUNTOS: <span id="puntos">00</span></div>
+      <div class="stat-box">TIEMPO: <span id="tiempo">50</span>s</div>
+    </div>
+
+    <canvas id="juego" width="600" height="400"></canvas>
+
+    <div class="console-controls">
+      <div class="d-pad">
+        <button id="btnArriba" class="arrow up" onclick="moverArriba();"></button>
+        <div class="horizontal-btns">
+          <button id="btnIzquierda" class="arrow left" onclick="moverIzquierda();"></button>
+          <button id="btnAbajo" class="arrow down" onclick="moverAbajo();"></button>
+          <button id="btnDerecha" class="arrow right" onclick="moverDerecha();"></button>
+        </div>
+      </div>
+      
+      <button class="btn-reset" onclick="reiniciarJuego()">REINICIAR SISTEMA</button>
+    </div>
+
+    <p id="mensaje"></p>
+  </main>
+
   <script src="cazando.js"></script>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('gaming-green');
+    }
+  </script>
 </body>
- 
 </html>
