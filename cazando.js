@@ -111,7 +111,7 @@ function detectarColision(){
         // MOVER COMIDA ALEATORIA
         comidaX = Math.random() * (canvas.width - ANCHOCOMIDA);
         comidaY = Math.random() * (canvas.height - ALTURACOMIDA);
-        tiempo = 10;
+        tiempo = 15;
         actualizarPantalla();
 
         // CONDICIÓN GANAR
