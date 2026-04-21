@@ -4,6 +4,9 @@ let ctx = canvas.getContext("2d");
 // Agrega esto al inicio de tu JS (cerca de las variables de gatoX y gatoY)
 let imagenGato = new Image();
 imagenGato.src = "img/gatito.png"; // Asegúrate de que el archivo esté en la misma carpeta
+// Agrega esto debajo de la imagen del gato
+let imagenComida = new Image();
+imagenComida.src = "img/comida.png"; // Asegúrate de tener este archivo en tu carpeta
 
 // GATO
 let gatoX = 0;
@@ -35,35 +38,39 @@ function graficarGato() {
     ctx.drawImage(imagenGato, gatoX, gatoY, ANCHOGATO, ALTURAGATO);
 }
 
-//FUNCION PARA GRAFICAR COMIDA
+// SUSTITUYE TU FUNCIÓN ACTUAL POR ESTA:
 function graficarComida() {
-    graficarRectangulo(comidaX, comidaY, ANCHOCOMIDA, ALTURACOMIDA, "#ff0000");
-};
+    // Usamos la nueva variable imagenComida
+    ctx.drawImage(imagenComida, comidaX, comidaY, ANCHOCOMIDA, ALTURACOMIDA);
+}
 
 
 //FUNCION PARA INICIAR EL JUEGO
 function iniciarJuego() {
-    // GATO CENTRADO
+    // 1. POSICIONAMIENTO INICIAL
     gatoX = (canvas.width / 2) - (ANCHOGATO / 2);
     gatoY = (canvas.height / 2) - (ALTURAGATO / 2);
 
-    // COMIDA INICIAL
     comidaX = canvas.width - ANCHOCOMIDA;
     comidaY = canvas.height - ALTURACOMIDA;
 
+    // 2. REINICIO DE ESTADOS
     puntos = 0;
     tiempo = 15;
-
     document.getElementById("puntos").textContent = puntos;
     document.getElementById("tiempo").textContent = tiempo;
 
-    imagenGato.onload = function() {
-        actualizarPantalla();
-    };
-    graficarComida();
+    // 3. CONTROL DE RENDERIZADO (El truco del Tutor)
+    // Definimos qué pasa cuando cargan, pero también llamamos a la función
+    // por si ya estaban listas (caché).
+    imagenGato.onload = () => actualizarPantalla();
+    imagenComida.onload = () => actualizarPantalla();
+    
+    // Llamada inmediata para asegurar que el canvas no empiece vacío
+    actualizarPantalla();
 
-    // INICIAR CUENTA REGRESIVA
-    if(intervalo != null){
+    // 4. GESTIÓN DEL TIEMPO
+    if (intervalo != null) {
         clearInterval(intervalo);
     }
     intervalo = setInterval(restarTiempo, 1000);
