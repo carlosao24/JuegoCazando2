@@ -1,6 +1,10 @@
 let canvas = document.getElementById("juego");
 let ctx = canvas.getContext("2d");
 
+// Agrega esto al inicio de tu JS (cerca de las variables de gatoX y gatoY)
+let imagenGato = new Image();
+imagenGato.src = "img/gatito.png"; // Asegúrate de que el archivo esté en la misma carpeta
+
 // GATO
 let gatoX = 0;
 let gatoY = 0;
@@ -25,10 +29,11 @@ function graficarRectangulo(x, y, ancho, alto, color) {
     ctx.fillRect(x, y, ancho, alto);
 };
 
-//FUNCION PARA GRAFICAR AL GATO
+// SUSTITUYE TU FUNCIÓN ACTUAL POR ESTA:
 function graficarGato() {
-    graficarRectangulo(gatoX, gatoY, ANCHOGATO, ALTURAGATO, "white");
-};
+    // drawImage recibe: (imagen, x, y, ancho, alto)
+    ctx.drawImage(imagenGato, gatoX, gatoY, ANCHOGATO, ALTURAGATO);
+}
 
 //FUNCION PARA GRAFICAR COMIDA
 function graficarComida() {
@@ -52,7 +57,9 @@ function iniciarJuego() {
     document.getElementById("puntos").textContent = puntos;
     document.getElementById("tiempo").textContent = tiempo;
 
-    graficarGato();
+    imagenGato.onload = function() {
+        actualizarPantalla();
+    };
     graficarComida();
 
     // INICIAR CUENTA REGRESIVA
