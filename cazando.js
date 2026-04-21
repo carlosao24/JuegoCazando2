@@ -47,7 +47,7 @@ function iniciarJuego() {
     comidaY = canvas.height - ALTURACOMIDA;
 
     puntos = 0;
-    tiempo = 10;
+    tiempo = 15;
 
     document.getElementById("puntos").textContent = puntos;
     document.getElementById("tiempo").textContent = tiempo;
