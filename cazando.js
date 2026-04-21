@@ -115,7 +115,17 @@ function detectarColision(){
         actualizarPantalla();
 
         // CONDICIÓN GANAR
-        if(puntos == 6){
+        if(puntos == 1){
+            tiempo = 14;
+        }else if(puntos == 2){
+            tiempo = 13;
+        }else if(puntos == 3){
+            tiempo = 12;
+        }else if(puntos == 4){
+            tiempo = 11;
+        }else if(puntos == 5){
+            tiempo = 10;
+        }else if(puntos == 6){
             alert("GANASTE 🎉");
             clearInterval(intervalo);
         }
